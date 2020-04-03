@@ -30,7 +30,6 @@ enum planck_layers {
   _LOWER_WIN,
   _RAISE_WIN,
   _ARROWS,
-  //_PLOVER,
   _ADJUST,
   _ADJUST_WIN,
 };
@@ -39,11 +38,11 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   QWERTY_WIN,
   COLEMAK,
-  PLOVER,
-  BACKLIT,
   EXT_PLV,
   MACRO_CIRC,
   MACRO_TICK,
+  MACRO_TILD,
+  MACRO_TILD_WIN,
 };
 
 #define LOWER MO(_LOWER)
@@ -128,14 +127,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 [_LOWER] = LAYOUT_planck_grid(
-    AFR_CH_TILD, FR_CH_PLUS,  FR_CH_DQOT,  FR_CH_ASTR,  FR_CH_CCED,  FR_CH_PERC,  FR_CH_AMPR,  FR_CH_SLSH,   FR_CH_LPRN,   FR_CH_RPRN,   FR_CH_EQL,    FR_CH_QST,
+    MACRO_TILD, FR_CH_PLUS,  FR_CH_DQOT,  FR_CH_ASTR,  FR_CH_CCED,  FR_CH_PERC,  FR_CH_AMPR,  FR_CH_SLSH,   FR_CH_LPRN,   FR_CH_RPRN,   FR_CH_EQL,    FR_CH_QST,
     MACRO_CIRC,  _______,     _______,     _______,     _______,     _______,     AFR_CH_AT,   FR_CH_COLN,   AFR_CH_LCBR,  AFR_CH_RCBR,  AFR_CH_BSLS,  FR_CH_DLR,
     _______,     _______,     _______,     _______,     _______,     _______,     FR_CH_HASH,  AFR_CH_PIPE,  AFR_CH_LBRC,  AFR_CH_RBRC,  FR_CH_EXLM,   _______,
     _______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,      KC_MNXT,      KC_VOLD,      KC_VOLU,      KC_MPLY
 ),
 
 [_LOWER_WIN] = LAYOUT_planck_grid(
-    FR_CH_TILD, FR_CH_PLUS,  FR_CH_DQOT,  FR_CH_ASTR,  FR_CH_CCED,  FR_CH_PERC,  FR_CH_AMPR,  FR_CH_SLSH,   FR_CH_LPRN,   FR_CH_RPRN,   FR_CH_EQL,    FR_CH_QST,
+    MACRO_TILD_WIN, FR_CH_PLUS,  FR_CH_DQOT,  FR_CH_ASTR,  FR_CH_CCED,  FR_CH_PERC,  FR_CH_AMPR,  FR_CH_SLSH,   FR_CH_LPRN,   FR_CH_RPRN,   FR_CH_EQL,    FR_CH_QST,
     MACRO_CIRC,  _______,     _______,     _______,     _______,     _______,     FR_CH_AT,   FR_CH_COLN,   FR_CH_LCBR,  FR_CH_RCBR_2,  FR_CH_BSLS,  FR_CH_DLR,
     _______,     _______,     _______,     _______,     _______,     _______,     FR_CH_HASH,  FR_CH_PIPE_2,  FR_CH_LBRC,  FR_CH_RBRC_2,  FR_CH_EXLM,   _______,
     _______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,      KC_MNXT,      KC_VOLD,      KC_VOLU,      KC_MPLY
@@ -155,16 +154,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 [_RAISE] = LAYOUT_planck_grid(
-    KC_0,        KC_1,     KC_2,     KC_3,     FR_CH_DQOT,  MACRO_TICK,   _______,  _______,  _______,  FR_CH_CIRC, FR_CH_UE, _______,
+    KC_0,        KC_1,     KC_2,     KC_3,     FR_CH_DQOT,  MACRO_TICK,   _______,  _______, AFR_CH_TILD,  FR_CH_CIRC, FR_CH_UE, _______,
     MACRO_CIRC,  KC_4,     KC_5,     KC_6,     FR_CH_QUOT,  AFR_CH_LESS,  _______,  _______,  _______,  FR_CH_GRV,  FR_CH_AE, FR_CH_DLR,
     _______,     KC_7,     KC_8,     KC_9,     FR_CH_ASTR,  AFR_CH_MORE,  _______,  _______,  _______,  FR_CH_DIAE, _______,  _______,
     _______,     _______,  _______,  _______,  _______,     _______,      _______,  _______,  _______,  _______,    _______,  _______
 ),
 
 [_RAISE_WIN] = LAYOUT_planck_grid(
-    KC_0,        KC_1,     KC_2,     KC_3,     FR_CH_DQOT,  MACRO_TICK,   _______,  _______,  _______,  FR_CH_CIRC, FR_CH_UE, _______,
-    MACRO_CIRC,  KC_4,     KC_5,     KC_6,     FR_CH_QUOT,  FR_CH_LESS,  _______,  _______,  _______,  FR_CH_GRV,  FR_CH_AE, FR_CH_DLR,
-    _______,     KC_7,     KC_8,     KC_9,     FR_CH_ASTR,  FR_CH_MORE,  _______,  _______,  _______,  FR_CH_DIAE, _______,  _______,
+    KC_0,        KC_1,     KC_2,     KC_3,     FR_CH_DQOT,  MACRO_TICK,   _______,  _______, FR_CH_TILD,  FR_CH_CIRC, FR_CH_UE, _______,
+    MACRO_CIRC,  KC_4,     KC_5,     KC_6,     FR_CH_QUOT,  FR_CH_LESS,  _______,  _______,   _______,  FR_CH_GRV,  FR_CH_AE, FR_CH_DLR,
+    _______,     KC_7,     KC_8,     KC_9,     FR_CH_ASTR,  FR_CH_MORE,  _______,  _______,   _______,  FR_CH_DIAE, _______,  _______,
     _______,     _______,  _______,  _______,  _______,     _______,      _______,  _______,  _______,  _______,    _______,  _______
 ),
 
@@ -201,14 +200,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_planck_grid(
     _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL ,
-    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______,  _______,  PLOVER,  _______,
+    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______,  _______,  _______,  _______,
     _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, _______, _______,
     QWERTY, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, QWERTY_WIN
 ),
 
 [_ADJUST_WIN] = LAYOUT_planck_grid(
     _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL ,
-    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______,  _______,  PLOVER,  _______,
+    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______,  _______,  _______,  _______,
     _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, _______, _______,
     QWERTY, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, QWERTY_WIN
 )
@@ -234,7 +233,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
-        print("mode just switched to qwerty and this is a huge string\n");
         set_single_persistent_default_layer(_QWERTY);
       }
       return false;
@@ -256,53 +254,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("+ ");
       } else { }
       break;
-    case BACKLIT:
+    case MACRO_TILD_WIN:
       if (record->event.pressed) {
-        register_code(KC_RSFT);
-        #ifdef BACKLIGHT_ENABLE
-          backlight_step();
-        #endif
-        #ifdef KEYBOARD_planck_rev5
-          writePinLow(E6);
-        #endif
-      } else {
-        unregister_code(KC_RSFT);
-        #ifdef KEYBOARD_planck_rev5
-          writePinHigh(E6);
-        #endif
-      }
-      return false;
+        SEND_STRING(SS_ALGR("=") " ");
+      } else { }
       break;
-      /*
-    case PLOVER:
+    case MACRO_TILD:
       if (record->event.pressed) {
-        #ifdef AUDIO_ENABLE
-          stop_all_notes();
-          PLAY_SONG(plover_song);
-        #endif
-        layer_off(_RAISE);
-        layer_off(_LOWER);
-        layer_off(_ADJUST);
-        layer_on(_PLOVER);
-        if (!eeconfig_is_enabled()) {
-            eeconfig_init();
-        }
-        keymap_config.raw = eeconfig_read_keymap();
-        keymap_config.nkro = 1;
-        eeconfig_update_keymap(keymap_config.raw);
-      }
-      return false;
+        SEND_STRING(SS_ALGR("n") " ");
+      } else { }
       break;
-    case EXT_PLV:
-      if (record->event.pressed) {
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(plover_gb_song);
-        #endif
-        layer_off(_PLOVER);
-      }
-      return false;
-      break;
-      */
   }
   return true;
 }
